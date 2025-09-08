@@ -32,17 +32,17 @@ let package = Package(
         // ---- Your binary XCFrameworks (URLs will point to your GitHub Release in step 3) ----
         .binaryTarget(
             name: "YieldloveAdIntegration",
-            url: "https://github.com/<ORG/REPO>/releases/download/v10.2.0/YieldloveAdIntegration.xcframework.zip",
+            url: "https://github.com/shafeerehmanadscale/stroeerSDK-iOS-SPM/releases/download/v10.2.0/YieldloveAdIntegration.xcframework.zip",
             checksum: "55089f00165ee42452d87dc124664557b54ab0d5972fb6258cf65a8d82203537"
         ),
         .binaryTarget(
             name: "YieldloveConsent",
-            url: "https://github.com/<ORG/REPO>/releases/download/v10.2.0/YieldloveConsent.xcframework.zip",
+            url: "https://github.com/shafeerehmanadscale/stroeerSDK-iOS-SPM/releases/download/v10.2.0/YieldloveConsent.xcframework.zip",
             checksum: "542793c4b84112ad8d41c58d37c16e89fa246f69a56df967934f6ae3fb589782"
         ),
         .binaryTarget(
             name: "YieldloveConfiant",
-            url: "https://github.com/<ORG/REPO>/releases/download/v10.2.0/YieldloveConfiant.xcframework.zip",
+            url: "https://github.com/shafeerehmanadscale/stroeerSDK-iOS-SPM/releases/download/v10.2.0/YieldloveConfiant.xcframework.zip",
             checksum: "49a92f851e25618cd3ba138c88f3493c873fc0e5d02db25d2d5b56a187ca5b8e"
         ),
 
