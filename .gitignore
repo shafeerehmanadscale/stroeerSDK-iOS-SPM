@@ -1,0 +1,21 @@
+# Swift Package / Xcode ignores
+.build/
+.swiftpm/
+DerivedData/
+*.xcworkspace
+xcuserdata/
+# If you keep your package purely as a package, you can ignore xcodeproj as well.
+*.xcodeproj
+
+# macOS
+.DS_Store
+
+# Archives / zips
+*.zip
+*.tgz
+*.gz
+
+# Fastlane (optional; comment out if you want these tracked)
+# fastlane/Preview.html
+# fastlane/screenshots
+# fastlane/test_output
