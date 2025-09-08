@@ -5,31 +5,36 @@ let package = Package(
     name: "YieldloveAdIntegration",
     platforms: [.iOS(.v15)],
 
-    // Third-party packages auto-pulled via overlay targets
+    // 1) Public products
+    products: [
+        // Core (also pulls Prebid 3.1.0, GMA 12.2.0, PromiseKit 8.0.0 via overlay)
+        .library(
+            name: "YieldloveAdIntegration",
+            targets: ["YieldloveAdIntegration", "YLCoreSupport"]
+        ),
+        // Consent (pulls Core + CMP 7.7.7)
+        .library(
+            name: "YieldloveConsent",
+            targets: ["YieldloveConsent", "YLConsentSupport"]
+        ),
+        // Confiant (pulls Core only; publisher adds Confiant SDK)
+        .library(
+            name: "YieldloveConfiant",
+            targets: ["YieldloveConfiant", "YLConfiantSupport"]
+        )
+    ],
+
+    // 2) Third-party package deps (fetched by the overlay targets)
     dependencies: [
         .package(url: "https://github.com/prebid/prebid-mobile-ios.git", exact: "3.1.0"),
-        .package(url: "https://github.com/googleads/swift-package-manager-google-mobile-ads.git",
-                 exact: "12.2.0"),
-        .package(url: "https://github.com/mxcl/PromiseKit.git",
-                 exact: "8.0.0"),
+        .package(url: "https://github.com/googleads/swift-package-manager-google-mobile-ads.git", exact: "12.2.0"),
+        .package(url: "https://github.com/mxcl/PromiseKit.git", exact: "8.0.0"),
         .package(url: "https://github.com/SourcePointUSA/ios-cmp-app.git", exact: "7.7.7")
     ],
 
-    // Public products (match your subspecs)
-    products: [
-        // Core
-        .library(name: "YieldloveAdIntegration",
-                 targets: ["YieldloveAdIntegration", "YLCoreSupport"]),
-        // Consent (pulls Core + CMP automatically)
-        .library(name: "YieldloveConsent",
-                 targets: ["YieldloveConsent", "YLConsentSupport"]),
-        // Confiant (pulls Core automatically; publisher adds Confiant SDK separately)
-        .library(name: "YieldloveConfiant",
-                 targets: ["YieldloveConfiant", "YLConfiantSupport"])
-    ],
-
+    // 3) Targets
     targets: [
-        // ---- Your binary XCFrameworks (URLs will point to your GitHub Release in step 3) ----
+        // --- Binary XCFrameworks (GitHub Release v10.2.0) ---
         .binaryTarget(
             name: "YieldloveAdIntegration",
             url: "https://github.com/shafeerehmanadscale/stroeerSDK-iOS-SPM/releases/download/v10.2.0/YieldloveAdIntegration.xcframework.zip",
@@ -46,7 +51,7 @@ let package = Package(
             checksum: "49a92f851e25618cd3ba138c88f3493c873fc0e5d02db25d2d5b56a187ca5b8e"
         ),
 
-        // ---- Overlay targets (no API; just wire dependencies) ----
+        // --- Overlay “glue” targets (no API; just pull deps) ---
         .target(
             name: "YLCoreSupport",
             dependencies: [
