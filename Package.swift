@@ -29,7 +29,8 @@ let package = Package(
         .package(url: "https://github.com/prebid/prebid-mobile-ios.git", exact: "3.1.0"),
         .package(url: "https://github.com/googleads/swift-package-manager-google-mobile-ads.git", exact: "12.2.0"),
         .package(url: "https://github.com/mxcl/PromiseKit.git", exact: "8.0.0"),
-        .package(url: "https://github.com/SourcePointUSA/ios-cmp-app.git", exact: "7.7.7")
+        .package(url: "https://github.com/SourcePointUSA/ios-cmp-app",
+                 .upToNextMajor(from: "7.7.7"))
     ],
 
     // 3) Targets
