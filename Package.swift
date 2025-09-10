@@ -43,26 +43,25 @@ let package = Package(
 
     // 3) Targets
     targets: [
-        // --- Binary XCFrameworks (GitHub Release 10.2.2) ---
         .binaryTarget(
             name: "YieldloveAdIntegration",
-            url: "https://github.com/shafeerehmanadscale/stroeerSDK-iOS-SPM/releases/download/10.2.2/YieldloveAdIntegration.xcframework.zip",
-            checksum: "55089f00165ee42452d87dc124664557b54ab0d5972fb6258cf65a8d82203537"
+            url: "https://github.com/shafeerehmanadscale/stroeerSDK-iOS-SPM/releases/download/10.2.1/YieldloveAdIntegration.xcframework.zip",
+            checksum: "0978b64d0c450ff8c0ea8a7232657f42edd86e75a1f6537b400e40eae6bea7a5"
         ),
         .binaryTarget(
             name: "YieldloveConsent",
-            url: "https://github.com/shafeerehmanadscale/stroeerSDK-iOS-SPM/releases/download/10.2.2/YieldloveConsent.xcframework.zip",
-            checksum: "542793c4b84112ad8d41c58d37c16e89fa246f69a56df967934f6ae3fb589782"
+            url: "https://github.com/shafeerehmanadscale/stroeerSDK-iOS-SPM/releases/download/10.2.1/YieldloveConsent.xcframework.zip",
+            checksum: "2d7e1660449adb601945b086e870f879d4762ba69cef7d5a4b7cdc72e5634835"
         ),
         .binaryTarget(
             name: "YieldloveConfiant",
-            url: "https://github.com/shafeerehmanadscale/stroeerSDK-iOS-SPM/releases/download/10.2.2/YieldloveConfiant.xcframework.zip",
-            checksum: "49a92f851e25618cd3ba138c88f3493c873fc0e5d02db25d2d5b56a187ca5b8e"
+            url: "https://github.com/shafeerehmanadscale/stroeerSDK-iOS-SPM/releases/download/10.2.1/YieldloveConfiant.xcframework.zip",
+            checksum: "958d2a9c0906ff82511f11c00b456affd4fed6af85f0b40a5dc77461a31f87b6"
         ),
         .binaryTarget(
             name: "YieldloveGravite",
-            url: "https://github.com/shafeerehmanadscale/stroeerSDK-iOS-SPM/releases/download/10.2.2/YieldloveGravite.xcframework.zip",
-            checksum: "bdec9b362afdff07034ea056ada577c7bb4f2ae3e43bfcd6f4ce7c685e8a61e2"
+            url: "https://github.com/shafeerehmanadscale/stroeerSDK-iOS-SPM/releases/download/10.2.1/YieldloveGravite.xcframework.zip",
+            checksum: "22ae2753c6077d967d576d9511dcc6944baca6837819cca99e08afd10d62fd97"
         ),
 
         // --- Overlay “glue” targets (no API; just pull deps) ---
