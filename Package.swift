@@ -45,23 +45,23 @@ let package = Package(
     targets: [
         .binaryTarget(
             name: "YieldloveAdIntegration",
-            url: "https://github.com/shafeerehmanadscale/stroeerSDK-iOS-SPM/releases/download/10.2.5/YieldloveAdIntegration.xcframework.zip",
-            checksum: "33fe376faad8344eaa4de49322cffc16c1cdd9662af2376e3de3f90fc3572038"
+            url: "https://github.com/shafeerehmanadscale/stroeerSDK-iOS-SPM/releases/download/10.2.0/YieldloveAdIntegration.xcframework.zip",
+            checksum: "6f708e82d08bc640e38bdd5359224dbbc045b3c63ceec778a93c12fceac0260c"
         ),
         .binaryTarget(
             name: "YieldloveConsent",
-            url: "https://github.com/shafeerehmanadscale/stroeerSDK-iOS-SPM/releases/download/10.2.5/YieldloveConsent.xcframework.zip",
-            checksum: "0e19e3b1e7926ed52c75fde337678c28111d1d4b8819e81b9a7e477580de875c"
+            url: "https://github.com/shafeerehmanadscale/stroeerSDK-iOS-SPM/releases/download/10.2.0/YieldloveConsent.xcframework.zip",
+            checksum: "1fbd5655c07325c70906bf58119a3e9d68ff3f629777270b5cb3223d6193ad04"
         ),
         .binaryTarget(
             name: "YieldloveConfiant",
-            url: "https://github.com/shafeerehmanadscale/stroeerSDK-iOS-SPM/releases/download/10.2.5/YieldloveConfiant.xcframework.zip",
-            checksum: "96344558eeb96876f550c4a053085b88605da07c95791fb8e5f84935c39d5f73"
+            url: "https://github.com/shafeerehmanadscale/stroeerSDK-iOS-SPM/releases/download/10.2.0/YieldloveConfiant.xcframework.zip",
+            checksum: "94ed8be662e4018be70df4a57c03066388cc7e1ac9bfb861920cf6991055ef61"
         ),
         .binaryTarget(
             name: "YieldloveGravite",
-            url: "https://github.com/shafeerehmanadscale/stroeerSDK-iOS-SPM/releases/download/10.2.5/YieldloveGravite.xcframework.zip",
-            checksum: "2b1598837f3f5a1b307ed4c0bd1e785e5ba3238d2137160a1f672272fcda76c5"
+            url: "https://github.com/shafeerehmanadscale/stroeerSDK-iOS-SPM/releases/download/10.2.0/YieldloveGravite.xcframework.zip",
+            checksum: "b71858fe4fd163f965a0c4d00f581c7120c8a014af74a46c089d6301c92d9d46"
         ),
 
         // --- Overlay “glue” targets (no API; just pull deps) ---
@@ -102,7 +102,8 @@ let package = Package(
             dependencies: [
                 "YieldloveGravite",
                 "YieldloveAdIntegration",
-                "YLCoreSupport"
+                "YLCoreSupport",
+                .product(name: "AATKit-Core", package: "AATKitSPM")
             ],
             path: "Sources/YLGraviteSupport",
             sources: ["Shim.swift"]
