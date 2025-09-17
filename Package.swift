@@ -35,10 +35,7 @@ let package = Package(
         .package(url: "https://github.com/googleads/swift-package-manager-google-mobile-ads.git", exact: "12.2.0"),
         .package(url: "https://github.com/mxcl/PromiseKit.git", exact: "8.0.0"),
         .package(url: "https://github.com/SourcePointUSA/ios-cmp-app",
-                 .upToNextMinor(from: "7.7.7")),
-        // AATKit for Gravite. If your URL/product differs, adjust both here and in YLGraviteSupport.
-        .package(url: "https://github.com/AddApptr/AATKitSPM.git",
-                 .upToNextMinor(from: "3.12.3"))
+                 .upToNextMinor(from: "7.7.7"))
     ],
 
     // 3) Targets
@@ -46,22 +43,22 @@ let package = Package(
         .binaryTarget(
             name: "YieldloveAdIntegration",
             url: "https://github.com/shafeerehmanadscale/stroeerSDK-iOS-SPM/releases/download/10.2.0/YieldloveAdIntegration.xcframework.zip",
-            checksum: "6f708e82d08bc640e38bdd5359224dbbc045b3c63ceec778a93c12fceac0260c"
+            checksum: "e52577f89e3c6f88f3fcf65a63519ef117c069d3a3ca9e53e04c73e6924c0fb2"
         ),
         .binaryTarget(
             name: "YieldloveConsent",
             url: "https://github.com/shafeerehmanadscale/stroeerSDK-iOS-SPM/releases/download/10.2.0/YieldloveConsent.xcframework.zip",
-            checksum: "1fbd5655c07325c70906bf58119a3e9d68ff3f629777270b5cb3223d6193ad04"
+            checksum: "82d802a040b4c3c72f02742bd39ff786d50a1ca0794662cdbaac843b20c3d737"
         ),
         .binaryTarget(
             name: "YieldloveConfiant",
             url: "https://github.com/shafeerehmanadscale/stroeerSDK-iOS-SPM/releases/download/10.2.0/YieldloveConfiant.xcframework.zip",
-            checksum: "94ed8be662e4018be70df4a57c03066388cc7e1ac9bfb861920cf6991055ef61"
+            checksum: "a360f196cd06c76dc66cb71296da4e0159858383c18b77d79ae28f144339c447"
         ),
         .binaryTarget(
             name: "YieldloveGravite",
             url: "https://github.com/shafeerehmanadscale/stroeerSDK-iOS-SPM/releases/download/10.2.0/YieldloveGravite.xcframework.zip",
-            checksum: "b71858fe4fd163f965a0c4d00f581c7120c8a014af74a46c089d6301c92d9d46"
+            checksum: "e5e86845a0f331e17ae044a6d5d75d5172c110035389f7d46a658105cc6787b5"
         ),
 
         // --- Overlay “glue” targets (no API; just pull deps) ---
@@ -102,11 +99,10 @@ let package = Package(
             dependencies: [
                 "YieldloveGravite",
                 "YieldloveAdIntegration",
-                "YLCoreSupport",
-                .product(name: "AATKit-Core", package: "AATKitSPM")
+                "YLCoreSupport"
             ],
             path: "Sources/YLGraviteSupport",
-            sources: ["Shim.swift"]
+            sources: ["Shim.swift", "AATBridge.swift"]
         )
     ]
 )
