@@ -99,8 +99,7 @@ let package = Package(
             dependencies: [
                 "YieldloveGravite",
                 "YieldloveAdIntegration",
-                "YLCoreSupport",
-                .product(name: "AATKit-Core", package: "AATKitSPM")
+                "YLCoreSupport"
             ],
             path: "Sources/YLGraviteSupport",
             sources: ["Shim.swift"]
