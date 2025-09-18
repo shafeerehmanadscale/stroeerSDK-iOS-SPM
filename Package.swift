@@ -35,9 +35,7 @@ let package = Package(
         .package(url: "https://github.com/googleads/swift-package-manager-google-mobile-ads.git", exact: "12.2.0"),
         .package(url: "https://github.com/mxcl/PromiseKit.git", exact: "8.0.0"),
         .package(url: "https://github.com/SourcePointUSA/ios-cmp-app",
-                 .upToNextMinor(from: "7.7.7")),
-        .package(url: "https://github.com/AddApptr/AATKitSPM.git",
-                         .upToNextMinor(from: "3.12.3"))
+                 .upToNextMinor(from: "7.7.7"))
     ],
 
     // 3) Targets
@@ -105,7 +103,7 @@ let package = Package(
                 .product(name: "AATKit-Core", package: "AATKitSPM")
             ],
             path: "Sources/YLGraviteSupport",
-            sources: ["Shim.swift", "AATBridge.swift"]
+            sources: ["Shim.swift"]
         )
     ]
 )
