@@ -45,7 +45,7 @@ let package = Package(
         .binaryTarget(
             name: "YieldloveConsent",
             url: "https://github.com/shafeerehmanadscale/stroeerSDK-iOS-SPM/releases/download/10.2.0/YieldloveConsent.xcframework.zip",
-            checksum: "0e56f32c2d2b0c33f236baa5ac8715312cda70d35df8b60ee951d7bdcfeba797d"
+            checksum: "0e56f32aed00b81ec5da72d111ac5f832ce0b4a12a1c4d0d0fd4ed069af55667"
         ),
         .binaryTarget(
             name: "YieldloveConfiant",
