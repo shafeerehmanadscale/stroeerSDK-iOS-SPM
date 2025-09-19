@@ -7,29 +7,25 @@ let package = Package(
 
     // 1) Public products
     products: [
-        // Core (also pulls Prebid 3.1.0, GMA 12.2.0, PromiseKit 8.0.0 via overlay)
         .library(
             name: "YieldloveAdIntegration",
             targets: ["YieldloveAdIntegration", "YLCoreSupport"]
         ),
-        // Consent (pulls Core + CMP 7.7.7)
         .library(
             name: "YieldloveConsent",
             targets: ["YieldloveConsent", "YLConsentSupport"]
         ),
-        // Confiant (pulls Core only; publisher adds Confiant SDK)
         .library(
             name: "YieldloveConfiant",
             targets: ["YieldloveConfiant", "YLConfiantSupport"]
         ),
-        // Gravite (pulls Core + AATKit via overlay)
         .library(
             name: "YieldloveGravite",
-            targets: ["YieldloveGravite", "YLGraviteSupport"]
+            targets: ["YLGraviteSupport", "YLCoreSupport"]
         )
     ],
 
-    // 2) Third-party package deps (fetched by the overlay targets)
+    // 2) Third-party deps (fetched by overlay/support targets)
     dependencies: [
         .package(url: "https://github.com/prebid/prebid-mobile-ios.git", exact: "3.1.0"),
         .package(url: "https://github.com/googleads/swift-package-manager-google-mobile-ads.git", exact: "12.2.0"),
@@ -40,28 +36,24 @@ let package = Package(
 
     // 3) Targets
     targets: [
+        // --- Binary XCFrameworks ---
         .binaryTarget(
             name: "YieldloveAdIntegration",
             url: "https://github.com/shafeerehmanadscale/stroeerSDK-iOS-SPM/releases/download/10.2.0/YieldloveAdIntegration.xcframework.zip",
-            checksum: "e52577f89e3c6f88f3fcf65a63519ef117c069d3a3ca9e53e04c73e6924c0fb2"
+            checksum: "fed5ad2d6be8da831bf180072a813e74fd57e08aa2bdf3bc28803ae586570834"
         ),
         .binaryTarget(
             name: "YieldloveConsent",
             url: "https://github.com/shafeerehmanadscale/stroeerSDK-iOS-SPM/releases/download/10.2.0/YieldloveConsent.xcframework.zip",
-            checksum: "82d802a040b4c3c72f02742bd39ff786d50a1ca0794662cdbaac843b20c3d737"
+            checksum: "0e56f32c2d2b0c33f236baa5ac8715312cda70d35df8b60ee951d7bdcfeba797d"
         ),
         .binaryTarget(
             name: "YieldloveConfiant",
             url: "https://github.com/shafeerehmanadscale/stroeerSDK-iOS-SPM/releases/download/10.2.0/YieldloveConfiant.xcframework.zip",
-            checksum: "a360f196cd06c76dc66cb71296da4e0159858383c18b77d79ae28f144339c447"
-        ),
-        .binaryTarget(
-            name: "YieldloveGravite",
-            url: "https://github.com/shafeerehmanadscale/stroeerSDK-iOS-SPM/releases/download/10.2.0/YieldloveGravite.xcframework.zip",
-            checksum: "e5e86845a0f331e17ae044a6d5d75d5172c110035389f7d46a658105cc6787b5"
+            checksum: "6d7c52c2d2b0c33f236baa5ac8715312cda70d35df8b60ee951d7bdcfeba797d"
         ),
 
-        // --- Overlay “glue” targets (no API; just pull deps) ---
+        // --- Overlay / support targets ---
         .target(
             name: "YLCoreSupport",
             dependencies: [
@@ -94,15 +86,15 @@ let package = Package(
             path: "Sources/YLConfiantSupport",
             sources: ["Shim.swift"]
         ),
+
+        // --- Gravite as Swift sources (now includes ALL files under Sources/YLGraviteSupport) ---
         .target(
             name: "YLGraviteSupport",
             dependencies: [
-                "YieldloveGravite",
                 "YieldloveAdIntegration",
                 "YLCoreSupport"
             ],
-            path: "Sources/YLGraviteSupport",
-            sources: ["Shim.swift"]
+            path: "Sources/YLGraviteSupport"
         )
     ]
 )
