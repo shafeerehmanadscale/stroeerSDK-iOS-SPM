@@ -11,6 +11,7 @@ import YieldloveAdIntegration
 import UIKit
 import ObjectiveC.runtime
 
+@objc(YLGraviteWrapper)
 @objcMembers public class GraviteWrapper: NSObject, IBackFill {
     
     
