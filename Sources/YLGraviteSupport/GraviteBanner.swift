@@ -71,7 +71,8 @@ public class GraviteBanner : IBackFillBanner {
             else
             {
                 print("[Shafee - Gravite] cache table is not nil [END]")
-                cacheTable[placementName]?.bannerDelegate = nil // We don't need this anymore
+               // cacheTable[placementName]?.bannerDelegate = nil // We don't need this anymore
+                cacheTable[placementName]?.bannerDelegate?.loadedDelegate = loaded
             }
         }
     }
@@ -128,11 +129,13 @@ public class GraviteBanner : IBackFillBanner {
     }
 }
 
-class GraviteBannerDelegate: AATBannerCacheDelegate {
+@objcMembers
+class GraviteBannerDelegate: NSObject, AATBannerCacheDelegate {
     var loadedDelegate : IFirstBannerLoaded?
     
     init(_ loadedDelegate: IFirstBannerLoaded?) {
         self.loadedDelegate = loadedDelegate
+        super.init()
     }
     
     public func firstBannerLoaded() {
