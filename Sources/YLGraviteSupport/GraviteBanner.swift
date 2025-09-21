@@ -129,16 +129,14 @@ public class GraviteBanner : IBackFillBanner {
     }
 }
 
-@objcMembers
-class GraviteBannerDelegate: NSObject, AATBannerCacheDelegate {
+class GraviteBannerDelegate: AATBannerCacheDelegate {
     var loadedDelegate : IFirstBannerLoaded?
     
     init(_ loadedDelegate: IFirstBannerLoaded?) {
         self.loadedDelegate = loadedDelegate
-        super.init()
     }
     
-    @objc public func firstBannerLoaded() {
+    public func firstBannerLoaded() {
         print("[Shafee - Gravite] onFirstBannerLoaded DELEGATE [END]")
         //YLAATProtocolLocator.shared.firstBannerLoaded()
         loadedDelegate?.onFirstBannerLoaded()
