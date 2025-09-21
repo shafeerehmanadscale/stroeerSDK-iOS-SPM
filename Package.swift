@@ -21,7 +21,7 @@ let package = Package(
         ),
         .library(
             name: "YieldloveGravite",
-            type: .dynamic,
+            type: .static,
             targets: ["YLGraviteSupport", "YLCoreSupport"]
         )
     ],

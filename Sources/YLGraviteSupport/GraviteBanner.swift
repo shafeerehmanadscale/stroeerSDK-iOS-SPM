@@ -21,7 +21,7 @@ class GraviteBannerSet {
 }
 
 public class GraviteBanner : IBackFillBanner {
-    private var cacheTable: Dictionary<String, GraviteBannerSet> = Dictionary()
+    private var cacheTable: [String: GraviteBannerSet] = [:]
         
     private var cacheSize: Int = 1
     private var stroeerToGravitePlacementMapTable : Dictionary<String, String>? = nil
@@ -36,7 +36,7 @@ public class GraviteBanner : IBackFillBanner {
             let placementName = getPlacementNameForGravite(ylAdUnitData: ylAdUnitData)
             
             print("[Shafee - Gravite] view did appear FROM LOAD \(viewController.description) [END]")
-            //YLAATProtocolLocator.shared.controllerViewDidAppear(controller: viewController)
+
             AATSDK.controllerViewDidAppear(controller: viewController)
             if cacheTable[placementName] == nil
             {
@@ -56,23 +56,23 @@ public class GraviteBanner : IBackFillBanner {
                 configuration.requestConfiguration = request
                 configuration.bannerRequestDelegate = self
                 
-                if let bannerCache = AATSDK.createBannerCache(configuration: configuration) {
-                   // YLAATProtocolLocator.shared.createBannerCache(configuration: configuration)
-                    let bannerSet = GraviteBannerSet(bannerCache, bannerDelegate)
-                    cacheTable[placementName] = bannerSet
-                    cacheTable[placementName]!.bannerCache.impressionDelegate = self
-                    SLogger.i("\(GraviteConstants.logTag) A banner is created : \(placementName)")
-                }
-                else
-                {
-                    SLogger.i("\(GraviteConstants.logTag) failed to create banner : \(placementName)")
+                DispatchQueue.main.async {
+                    if let bannerCache = AATSDK.createBannerCache(configuration: configuration) {
+                        let bannerSet = GraviteBannerSet(bannerCache, bannerDelegate)
+                        self.cacheTable[placementName] = bannerSet
+                        self.cacheTable[placementName]!.bannerCache.impressionDelegate = self
+                        SLogger.i("\(GraviteConstants.logTag) A banner is created : \(placementName)")
+                    }
+                    else
+                    {
+                        SLogger.i("\(GraviteConstants.logTag) failed to create banner : \(placementName)")
+                    }
                 }
             }
             else
             {
                 print("[Shafee - Gravite] cache table is not nil [END]")
                 cacheTable[placementName]?.bannerDelegate = nil // We don't need this anymore
-               // cacheTable[placementName]?.bannerDelegate?.loadedDelegate = loaded
             }
         }
     }
@@ -138,7 +138,7 @@ class GraviteBannerDelegate: NSObject, AATBannerCacheDelegate {
         super.init()
     }
     
-    public func firstBannerLoaded() {
+    @objc public func firstBannerLoaded() {
         print("[Shafee - Gravite] onFirstBannerLoaded DELEGATE [END]")
         //YLAATProtocolLocator.shared.firstBannerLoaded()
         loadedDelegate?.onFirstBannerLoaded()
