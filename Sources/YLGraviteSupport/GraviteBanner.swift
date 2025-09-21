@@ -71,8 +71,8 @@ public class GraviteBanner : IBackFillBanner {
             else
             {
                 print("[Shafee - Gravite] cache table is not nil [END]")
-               // cacheTable[placementName]?.bannerDelegate = nil // We don't need this anymore
-                cacheTable[placementName]?.bannerDelegate?.loadedDelegate = loaded
+                cacheTable[placementName]?.bannerDelegate = nil // We don't need this anymore
+               // cacheTable[placementName]?.bannerDelegate?.loadedDelegate = loaded
             }
         }
     }
