@@ -5,7 +5,6 @@ let package = Package(
     name: "YieldloveAdIntegration",
     platforms: [.iOS(.v15)],
 
-    // 1) Public products
     products: [
         .library(
             name: "YieldloveAdIntegration",
@@ -29,16 +28,9 @@ let package = Package(
         )
     ],
 
-    // 2) Third-party deps (fetched by overlay/support targets)
-    dependencies: [
-        .package(url: "https://github.com/prebid/prebid-mobile-ios.git", exact: "3.1.0"),
-        .package(url: "https://github.com/googleads/swift-package-manager-google-mobile-ads.git", exact: "12.2.0"),
-        .package(url: "https://github.com/mxcl/PromiseKit.git", exact: "8.0.0"),
-        .package(url: "https://github.com/SourcePointUSA/ios-cmp-app",
-                 .upToNextMinor(from: "7.7.7"))
-    ],
+    // 👇 No third-party packages here
+    dependencies: [],
 
-    // 3) Targets
     targets: [
         // --- Binary XCFrameworks ---
         .binaryTarget(
@@ -57,14 +49,11 @@ let package = Package(
             checksum: "6d7c52c2d2b0c33f236baa5ac8715312cda70d35df8b60ee951d7bdcfeba797d"
         ),
 
-        // --- Overlay / support targets ---
+        // --- Support targets (no external products) ---
         .target(
             name: "YLCoreSupport",
             dependencies: [
-                "YieldloveAdIntegration",
-                .product(name: "PrebidMobile", package: "prebid-mobile-ios"),
-                .product(name: "GoogleMobileAds", package: "swift-package-manager-google-mobile-ads"),
-                .product(name: "PromiseKit", package: "PromiseKit")
+                "YieldloveAdIntegration"
             ],
             path: "Sources/YLCoreSupport",
             sources: ["Shim.swift"]
@@ -74,8 +63,7 @@ let package = Package(
             dependencies: [
                 "YieldloveConsent",
                 "YieldloveAdIntegration",
-                "YLCoreSupport",
-                .product(name: "ConsentViewController", package: "ios-cmp-app")
+                "YLCoreSupport"
             ],
             path: "Sources/YLConsentSupport",
             sources: ["Shim.swift"]
@@ -99,8 +87,6 @@ let package = Package(
             path: "Sources/YLGraviteSupport2",
             sources: ["Shim.swift"]
         ),
-
-        // --- Gravite as Swift sources (now includes ALL files under Sources/YLGraviteSupport) ---
         .target(
             name: "YLGraviteSupport",
             dependencies: [
