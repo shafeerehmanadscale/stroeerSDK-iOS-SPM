@@ -20,6 +20,10 @@ let package = Package(
             targets: ["YieldloveConfiant", "YLConfiantSupport"]
         ),
         .library(
+            name: "YieldloveGravite2",
+            targets: ["YLGraviteSupport2", "YLCoreSupport"]
+        ),
+        .library(
             name: "YieldloveGravite",
             targets: ["YLGraviteSupport", "YLCoreSupport"]
         )
@@ -84,6 +88,15 @@ let package = Package(
                 "YLCoreSupport"
             ],
             path: "Sources/YLConfiantSupport",
+            sources: ["Shim.swift"]
+        ),
+        .target(
+            name: "YLGraviteSupport2",
+            dependencies: [
+                "YieldloveAdIntegration",
+                "YLCoreSupport"
+            ],
+            path: "Sources/YLGraviteSupport2",
             sources: ["Shim.swift"]
         ),
 
