@@ -32,18 +32,18 @@ let package = Package(
         // --- Binary XCFrameworks ---
         .binaryTarget(
             name: "YieldloveAdIntegration",
-            url: "https://github.com/shafeerehmanadscale/stroeerSDK-iOS-SPM/releases/download/10.2.9/YieldloveAdIntegration.xcframework.zip",
-            checksum: "a4d94921c1543351559ae36fbe601b0bddf30c7cd6ee8341f1852354b10d8bc5"
+            url: "https://github.com/shafeerehmanadscale/stroeerSDK-iOS-SPM/releases/download/10.3.0/YieldloveAdIntegration.xcframework.zip",
+            checksum: "ab66908aa70ac369b8f2e04de9e62014bac94a1f45e4cca3209840612c0e582d"
         ),
         .binaryTarget(
             name: "YieldloveConsent",
-            url: "https://github.com/shafeerehmanadscale/stroeerSDK-iOS-SPM/releases/download/10.2.9/YieldloveConsent.xcframework.zip",
-            checksum: "2ab7a3d2dddec49b2164563eae7870e8efb68a6a1bc473fc742b5ff69bd3ab77"
+            url: "https://github.com/shafeerehmanadscale/stroeerSDK-iOS-SPM/releases/download/10.3.0/YieldloveConsent.xcframework.zip",
+            checksum: "c49671aba499993ace0d08c330d4f366c649f69f0234e086823dd9b915e2ab0d"
         ),
         .binaryTarget(
             name: "YieldloveConfiant",
-            url: "https://github.com/shafeerehmanadscale/stroeerSDK-iOS-SPM/releases/download/10.2.9/YieldloveConfiant.xcframework.zip",
-            checksum: "16accafc63209ffb5767eabe177d377e607ed97c50d257055b26542dda8f8c81"
+            url: "https://github.com/shafeerehmanadscale/stroeerSDK-iOS-SPM/releases/download/10.3.0/YieldloveConfiant.xcframework.zip",
+            checksum: "79c6df34fada947cd23060a05c603f738ca2b6506ce0fa645490e7146af5e232"
         ),
 
         // --- Support targets (now pull in required products) ---
