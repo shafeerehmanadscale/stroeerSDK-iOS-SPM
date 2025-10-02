@@ -30,7 +30,7 @@ let package = Package(
             name: "YieldloveAdIntegration",
             url: "https://github.com/shafeerehmanadscale/stroeerSDK-iOS-SPM/releases/download/10.3.2/YieldloveAdIntegration.xcframework.zip",
             checksum: "440abd3e9e9bb5cb4585b7a7555764caf3e4c0110956ae6df49f39777a5f62a9"
-        )
+        ),
 
         // --- Support targets (now pull in required products) ---
         .target(
