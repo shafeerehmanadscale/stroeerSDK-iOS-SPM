@@ -17,43 +17,43 @@ let package = Package(
         .library(
             name: "YieldloveConfiant",
             targets: ["YieldloveConfiant", "YLConfiantSupport"]
-        ),
-        .library(
-            name: "YieldloveGravite2",
-            targets: ["YLGraviteSupport2", "YLCoreSupport"]
-        ),
-        .library(
-            name: "YieldloveGravite",
-            targets: ["YLGraviteSupport", "YLCoreSupport"]
         )
     ],
 
-    // 👇 No third-party packages here
-    dependencies: [],
+    // Added exact-version dependencies
+    dependencies: [
+        .package(url: "https://github.com/prebid/prebid-mobile-ios.git", exact: "3.1.0"),
+        .package(url: "https://github.com/googleads/swift-package-manager-google-mobile-ads.git", exact: "12.2.0"),
+        .package(url: "https://github.com/mxcl/PromiseKit.git", exact: "8.2.0"),
+        .package(url: "https://github.com/SourcePointUSA/ios-cmp-app.git", exact: "7.7.7")
+    ],
 
     targets: [
         // --- Binary XCFrameworks ---
         .binaryTarget(
             name: "YieldloveAdIntegration",
-            url: "https://github.com/shafeerehmanadscale/stroeerSDK-iOS-SPM/releases/download/10.2.0/YieldloveAdIntegration.xcframework.zip",
-            checksum: "fed5ad2d6be8da831bf180072a813e74fd57e08aa2bdf3bc28803ae586570834"
+            url: "https://github.com/shafeerehmanadscale/stroeerSDK-iOS-SPM/releases/download/10.2.8/YieldloveAdIntegration.xcframework.zip",
+            checksum: "a4d94921c1543351559ae36fbe601b0bddf30c7cd6ee8341f1852354b10d8bc5"
         ),
         .binaryTarget(
             name: "YieldloveConsent",
-            url: "https://github.com/shafeerehmanadscale/stroeerSDK-iOS-SPM/releases/download/10.2.0/YieldloveConsent.xcframework.zip",
-            checksum: "0e56f32aed00b81ec5da72d111ac5f832ce0b4a12a1c4d0d0fd4ed069af55667"
+            url: "https://github.com/shafeerehmanadscale/stroeerSDK-iOS-SPM/releases/download/10.2.8/YieldloveConsent.xcframework.zip",
+            checksum: "2ab7a3d2dddec49b2164563eae7870e8efb68a6a1bc473fc742b5ff69bd3ab77"
         ),
         .binaryTarget(
             name: "YieldloveConfiant",
-            url: "https://github.com/shafeerehmanadscale/stroeerSDK-iOS-SPM/releases/download/10.2.0/YieldloveConfiant.xcframework.zip",
-            checksum: "6d7c52c2d2b0c33f236baa5ac8715312cda70d35df8b60ee951d7bdcfeba797d"
+            url: "https://github.com/shafeerehmanadscale/stroeerSDK-iOS-SPM/releases/download/10.2.8/YieldloveConfiant.xcframework.zip",
+            checksum: "16accafc63209ffb5767eabe177d377e607ed97c50d257055b26542dda8f8c81"
         ),
 
-        // --- Support targets (no external products) ---
+        // --- Support targets (now pull in required products) ---
         .target(
             name: "YLCoreSupport",
             dependencies: [
-                "YieldloveAdIntegration"
+                "YieldloveAdIntegration",
+                .product(name: "PrebidMobile", package: "prebid-mobile-ios"),
+                .product(name: "GoogleMobileAds", package: "swift-package-manager-google-mobile-ads"),
+                .product(name: "PromiseKit", package: "PromiseKit")
             ],
             path: "Sources/YLCoreSupport",
             sources: ["Shim.swift"]
@@ -63,7 +63,8 @@ let package = Package(
             dependencies: [
                 "YieldloveConsent",
                 "YieldloveAdIntegration",
-                "YLCoreSupport"
+                "YLCoreSupport",
+                .product(name: "ConsentViewController", package: "ios-cmp-app")
             ],
             path: "Sources/YLConsentSupport",
             sources: ["Shim.swift"]
@@ -77,23 +78,6 @@ let package = Package(
             ],
             path: "Sources/YLConfiantSupport",
             sources: ["Shim.swift"]
-        ),
-        .target(
-            name: "YLGraviteSupport2",
-            dependencies: [
-                "YieldloveAdIntegration",
-                "YLCoreSupport"
-            ],
-            path: "Sources/YLGraviteSupport2",
-            sources: ["Shim.swift"]
-        ),
-        .target(
-            name: "YLGraviteSupport",
-            dependencies: [
-                "YieldloveAdIntegration",
-                "YLCoreSupport"
-            ],
-            path: "Sources/YLGraviteSupport"
         )
     ]
 )
