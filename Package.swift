@@ -28,8 +28,8 @@ let package = Package(
         // --- Binary XCFrameworks ---
         .binaryTarget(
             name: "YieldloveAdIntegration",
-            url: "https://github.com/shafeerehmanadscale/stroeerSDK-iOS-SPM/releases/download/10.3.2/YieldloveAdIntegration.xcframework.zip",
-            checksum: "440abd3e9e9bb5cb4585b7a7555764caf3e4c0110956ae6df49f39777a5f62a9"
+            url: "https://github.com/shafeerehmanadscale/stroeerSDK-iOS-SPM/releases/download/10.3.3/YieldloveAdIntegration.xcframework.zip",
+            checksum: "f78667fc83a5053f3c7487c9d1081b64fbd230c06ec9e4d41294cf17c9a11757"
         ),
 
         // --- Support targets (now pull in required products) ---
