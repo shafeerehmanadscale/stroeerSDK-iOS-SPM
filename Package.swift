@@ -21,10 +21,6 @@ let package = Package(
         .library(
             name: "YieldloveGravite",
             targets: ["YieldloveGravite",  "YLGraviteSupport"]
-        ),
-        .library(
-            name: "YieldloveGraviteLocal",
-            targets: ["YieldloveGraviteLocal"]
         )
     ],
 
@@ -37,34 +33,49 @@ let package = Package(
         // ---- Remote binary XCFrameworks (fill URLs; checksums as provided) ----
         .binaryTarget(
             name: "YieldloveAdIntegration",
-            url: "https://github.com/shafeerehmanadscale/stroeerSDK-iOS-SPM/releases/download/10.3.8/YieldloveAdIntegration.xcframework.zip",
-            checksum: "381b91b32ae685f9cbd0aae510cdaf94fdc30fc2a9bf970fff60d7db65d70228"
+            url: "https://github.com/shafeerehmanadscale/stroeerSDK-iOS-SPM/releases/download/10.4.0/YieldloveAdIntegration.xcframework.zip",
+            checksum: "e0a9eaad84062dd25b58ddbbac9f17d16bd54213bde337f0b48e73909c5c7506"
         ),
         .binaryTarget(
             name: "YieldloveConsent",
-            url: "https://github.com/shafeerehmanadscale/stroeerSDK-iOS-SPM/releases/download/10.3.8/YieldloveConsent.xcframework.zip",
-            checksum: "52d073efb0cba9268f3ce30cca579b9b29f76c097395267877b03720a9d0fbe4"
+            url: "https://github.com/shafeerehmanadscale/stroeerSDK-iOS-SPM/releases/download/10.4.0/YieldloveConsent.xcframework.zip",
+            checksum: "f42331474ca300f7e31d6f51091d49fa6f8148b590636ff14e1510ba77899b90"
         ),
         .binaryTarget(
             name: "YieldloveConfiant",
-            url: "https://github.com/shafeerehmanadscale/stroeerSDK-iOS-SPM/releases/download/10.3.8/YieldloveConfiant.xcframework.zip",
-            checksum: "c4a0a8b7c5a973484da357256daf05950352219e8743f74c38e96dde10226b68"
+            url: "https://github.com/shafeerehmanadscale/stroeerSDK-iOS-SPM/releases/download/10.4.0/YieldloveConfiant.xcframework.zip",
+            checksum: "f2093920a631b13161d8493ced2e2c627e8da676351f2c7b81f0a69449fa93ee"
         ),
         .binaryTarget(
             name: "YieldloveGravite",
-            url: "https://github.com/shafeerehmanadscale/stroeerSDK-iOS-SPM/releases/download/10.3.8/YieldloveGravite.xcframework.zip",
-            checksum: "7ce93a6e27479b69fb477c253ef96693e262b6f6dde8dbc3ce6d9210c8e7022a"
+            url: "https://github.com/shafeerehmanadscale/stroeerSDK-iOS-SPM/releases/download/10.4.0/YieldloveGravite.xcframework.zip",
+            checksum: "c5341b2d86a3265734222990b72ae5828610f76cee04c9a7653f2662c0b6a346"
+        ),
+        .binaryTarget(
+            name: "GoogleMobileAds",
+            path: "Frameworks/GoogleMobileAds.xcframework"
         ),
         .binaryTarget(
             name: "OMSDK_Prebidorg",
             path: "Frameworks/OMSDK_Prebidorg.xcframework"
+        ),
+        .binaryTarget(
+            name: "XCPrebidMobile",
+            path: "Frameworks/XCPrebidMobile.xcframework"
+        ),
+        .binaryTarget(
+            name: "PromiseKit",
+            path: "Frameworks/PromiseKit.xcframework"
         ),
 
         .target(
             name: "YLCoreSupport",
             dependencies: [
                 "YieldloveAdIntegration",
-                "OMSDK_Prebidorg"
+                "GoogleMobileAds",
+                "OMSDK_Prebidorg",
+                "XCPrebidMobile",
+                "PromiseKit"
             ],
             path: "Sources/YLCoreSupport",
             sources: ["Shim.swift"]
@@ -100,14 +111,6 @@ let package = Package(
             ],
             path: "Sources/YLGraviteSupport",
             sources: ["Shim.swift"]
-        ),
-        .target(
-            name: "YieldloveGraviteLocal",
-            dependencies: [
-                .product(name: "AATKit-Core", package: "AATKitSPM"),
-                "YieldloveAdIntegration"
-            ],
-            path: "Sources/YLGraviteLocalSupport"
         )
     ]
 )
