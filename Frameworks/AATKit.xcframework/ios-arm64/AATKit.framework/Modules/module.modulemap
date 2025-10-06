@@ -1,0 +1,11 @@
+framework module AATKit {
+  umbrella header "AATKit.h"
+  export *
+
+  module * { export * }
+}
+
+module AATKit.Swift {
+  header "AATKit-Swift.h"
+  requires objc
+}

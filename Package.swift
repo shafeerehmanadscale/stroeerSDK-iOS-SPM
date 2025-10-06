@@ -25,30 +25,29 @@ let package = Package(
     ],
 
     dependencies: [
-        .package(url: "https://github.com/SourcePointUSA/ios-cmp-app.git", exact: "7.7.7"),
-        .package(url: "https://github.com/AddApptr/AATKitSPM", exact: "3.12.7")
+        .package(url: "https://github.com/SourcePointUSA/ios-cmp-app.git", exact: "7.7.7")
     ],
 
     targets: [
         // ---- Remote binary XCFrameworks (fill URLs; checksums as provided) ----
         .binaryTarget(
             name: "YieldloveAdIntegration",
-            url: "https://github.com/shafeerehmanadscale/stroeerSDK-iOS-SPM/releases/download/10.4.0/YieldloveAdIntegration.xcframework.zip",
+            url: "https://github.com/shafeerehmanadscale/stroeerSDK-iOS-SPM/releases/download/10.4.1/YieldloveAdIntegration.xcframework.zip",
             checksum: "e0a9eaad84062dd25b58ddbbac9f17d16bd54213bde337f0b48e73909c5c7506"
         ),
         .binaryTarget(
             name: "YieldloveConsent",
-            url: "https://github.com/shafeerehmanadscale/stroeerSDK-iOS-SPM/releases/download/10.4.0/YieldloveConsent.xcframework.zip",
+            url: "https://github.com/shafeerehmanadscale/stroeerSDK-iOS-SPM/releases/download/10.4.1/YieldloveConsent.xcframework.zip",
             checksum: "f42331474ca300f7e31d6f51091d49fa6f8148b590636ff14e1510ba77899b90"
         ),
         .binaryTarget(
             name: "YieldloveConfiant",
-            url: "https://github.com/shafeerehmanadscale/stroeerSDK-iOS-SPM/releases/download/10.4.0/YieldloveConfiant.xcframework.zip",
+            url: "https://github.com/shafeerehmanadscale/stroeerSDK-iOS-SPM/releases/download/10.4.1/YieldloveConfiant.xcframework.zip",
             checksum: "f2093920a631b13161d8493ced2e2c627e8da676351f2c7b81f0a69449fa93ee"
         ),
         .binaryTarget(
             name: "YieldloveGravite",
-            url: "https://github.com/shafeerehmanadscale/stroeerSDK-iOS-SPM/releases/download/10.4.0/YieldloveGravite.xcframework.zip",
+            url: "https://github.com/shafeerehmanadscale/stroeerSDK-iOS-SPM/releases/download/10.4.1/YieldloveGravite.xcframework.zip",
             checksum: "c5341b2d86a3265734222990b72ae5828610f76cee04c9a7653f2662c0b6a346"
         ),
         .binaryTarget(
@@ -66,6 +65,10 @@ let package = Package(
         .binaryTarget(
             name: "PromiseKit",
             path: "Frameworks/PromiseKit.xcframework"
+        ),
+        .binaryTarget(
+            name: "AATKit",
+            path: "Frameworks/AATKit.xcframework"
         ),
 
         .target(
@@ -107,7 +110,7 @@ let package = Package(
             dependencies: [
                 "YieldloveGravite",
                 "YieldloveAdIntegration",
-                .product(name: "AATKit-Core", package: "AATKitSPM"),
+                "AATKit"
             ],
             path: "Sources/YLGraviteSupport",
             sources: ["Shim.swift"]
