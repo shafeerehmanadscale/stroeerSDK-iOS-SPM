@@ -35,22 +35,22 @@ let package = Package(
         // ---- Remote binary XCFrameworks (fill URLs; checksums as provided) ----
         .binaryTarget(
             name: "YieldloveAdIntegration",
-            url: "https://github.com/shafeerehmanadscale/stroeerSDK-iOS-SPM/releases/download/10.4.2/YieldloveAdIntegration.xcframework.zip",
+            url: "https://github.com/shafeerehmanadscale/stroeerSDK-iOS-SPM/releases/download/10.4.3/YieldloveAdIntegration.xcframework.zip",
             checksum: "f421ee43dbc14bbedcb039363ba57ca8a3aee74fc71ab9bd612029c34a3a365d"
         ),
         .binaryTarget(
             name: "YieldloveConsent",
-            url: "https://github.com/shafeerehmanadscale/stroeerSDK-iOS-SPM/releases/download/10.4.2/YieldloveConsent.xcframework.zip",
+            url: "https://github.com/shafeerehmanadscale/stroeerSDK-iOS-SPM/releases/download/10.4.3/YieldloveConsent.xcframework.zip",
             checksum: "504d7d0437e3e97d945790a8aa1c96d58c30f3cf203810356dadc44a8b42b48c"
         ),
         .binaryTarget(
             name: "YieldloveConfiant",
-            url: "https://github.com/shafeerehmanadscale/stroeerSDK-iOS-SPM/releases/download/10.4.2/YieldloveConfiant.xcframework.zip",
+            url: "https://github.com/shafeerehmanadscale/stroeerSDK-iOS-SPM/releases/download/10.4.3/YieldloveConfiant.xcframework.zip",
             checksum: "351b4e8620bd24ba54c8f03c31f6012afe27525c7c4eaab75397a416cbfbd635"
         ),
         .binaryTarget(
             name: "YieldloveGravite",
-            url: "https://github.com/shafeerehmanadscale/stroeerSDK-iOS-SPM/releases/download/10.4.2/YieldloveGravite.xcframework.zip",
+            url: "https://github.com/shafeerehmanadscale/stroeerSDK-iOS-SPM/releases/download/10.4.3/YieldloveGravite.xcframework.zip",
             checksum: "5dfc1a7088c7e95e9e1454ba054ee8ed37e5d5d38071c163992fceb060d317f1"
         ),
         .binaryTarget(
